@@ -8,7 +8,8 @@
 </head>
 <body>
   <div class="app-shell">
-    <!-- Sidebar / steps -->
+
+    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div>
         <div class="logo">
@@ -45,7 +46,7 @@
             <div class="step-badge">4</div>
             <div>
               <div class="step-title">Preview</div>
-              <div>View the data payload.</div>
+              <div>View generated resume.</div>
             </div>
           </div>
         </div>
@@ -56,39 +57,27 @@
       </div>
     </aside>
 
-    <!-- Main content -->
+    <!-- MAIN CONTENT -->
     <main class="content">
-      <!-- SCREEN 1: START -->
+
+      <!-- SCREEN 1 -->
       <section class="screen active" id="screen-start">
         <header class="screen-header">
           <h1 class="screen-title">Resume Builder</h1>
-          <p class="screen-subtitle">
-            Fill in your information, generate a resume with the backend.
-          </p>
+          <p class="screen-subtitle">Fill in your information.</p>
         </header>
 
         <div class="hero-card">
           <div class="hero-orb"></div>
-          <div class="hero-badge">
-            <span></span> Simple multi-step resume form
-          </div>
-          <div class="hero-title">
-            Enter your details in a clear, structured layout.
-          </div>
-          <p class="hero-text">
-            Use this form to collect all the pieces of your resume:
-            contact information, education, experience, projects, and skills.
-            When you’re ready, send everything to the backend to generate the final resume.
-          </p>
+          <div class="hero-badge"><span></span> Simple multi-step resume form</div>
+          <div class="hero-title">Enter your details.</div>
+          <p class="hero-text">Use this form to generate a resume.</p>
 
           <div class="hero-cta-row">
             <button class="btn btn-primary" id="start-btn">
-              Start
-              <span>&rarr;</span>
+              Start <span>&rarr;</span>
             </button>
-            <button class="btn btn-secondary" id="jump-to-form-btn">
-              Go to form
-            </button>
+            <button class="btn btn-secondary" id="jump-to-form-btn">Go to form</button>
           </div>
         </div>
       </section>
@@ -97,16 +86,15 @@
       <section class="screen" id="screen-form">
         <header class="screen-header">
           <h2 class="screen-title">Enter your information</h2>
-          <p class="screen-subtitle">
-            Fields match the outline: contact info, education, experience, projects, and skills.
-          </p>
+          <p class="screen-subtitle">Contact info, education, experience, projects, and skills.</p>
         </header>
 
         <form id="resume-form">
           <div class="form-layout">
+
             <!-- LEFT COLUMN -->
             <div>
-              <!-- Name + Contact -->
+              <!-- NAME & CONTACT -->
               <div class="form-section">
                 <div class="form-section-header">
                   <div class="form-section-title">Name & Contact</div>
@@ -114,39 +102,15 @@
                 </div>
 
                 <div class="field-group">
-                  <div class="field">
-                    <label for="full_name">Name</label>
-                    <input id="full_name" name="full_name" placeholder="First Last" />
-                  </div>
-
-                  <div class="field">
-                    <label for="phone">Phone number</label>
-                    <input id="phone" name="phone" placeholder="(555) 123-4567" />
-                  </div>
-
-                  <div class="field">
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email" placeholder="you@example.com" />
-                  </div>
-
-                  <div class="field">
-                    <label for="linkedin">LinkedIn</label>
-                    <input id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/username" />
-                  </div>
-
-                  <div class="field">
-                    <label for="github">GitHub</label>
-                    <input id="github" name="github" placeholder="https://github.com/username" />
-                  </div>
-
-                  <div class="field">
-                    <label for="contact_other">Other contact (portfolio, etc.)</label>
-                    <input id="contact_other" name="contact_other" placeholder="Personal website or other link" />
-                  </div>
+                  <div class="field"><label>Name</label><input id="full_name" name="full_name"></div>
+                  <div class="field"><label>Phone number</label><input id="phone" name="phone"></div>
+                  <div class="field"><label>Email</label><input id="email" name="email"></div>
+                  <div class="field"><label>LinkedIn</label><input id="linkedin" name="linkedin"></div>
+                  <div class="field"><label>GitHub</label><input id="github" name="github"></div>
                 </div>
               </div>
 
-              <!-- Education -->
+              <!-- EDUCATION -->
               <div class="form-section" style="margin-top: 1rem;">
                 <div class="form-section-header">
                   <div class="form-section-title">Education</div>
@@ -154,113 +118,65 @@
                 </div>
 
                 <div class="field-group">
-                  <div class="field">
-                    <label for="uni_name">University name</label>
-                    <input id="uni_name" name="uni_name" placeholder="Ohio University" />
-                  </div>
-
-                  <div class="field">
-                    <label for="college_name">College name</label>
-                    <input id="college_name" name="college_name" placeholder="Russ College of Engineering and Technology" />
-                  </div>
-
-                  <div class="field">
-                    <label>Location</label>
+                  <div class="field"><label>University name</label><input id="uni_name" name="uni_name"></div>
+                  <div class="field"><label>Location</label>
                     <div class="field-row-two">
-                      <input id="edu_city" name="edu_city" placeholder="City" />
-                      <input id="edu_state" name="edu_state" placeholder="State" />
+                      <input id="edu_city" name="edu_city" placeholder="City">
+                      <input id="edu_state" name="edu_state" placeholder="State">
                     </div>
                   </div>
-
-                  <div class="field">
-                    <label>Expected graduation date</label>
+                  <div class="field"><label>Graduation</label>
                     <div class="field-row-two">
-                      <input id="grad_month" name="grad_month" placeholder="Month" />
-                      <input id="grad_year" name="grad_year" placeholder="Year" />
+                      <input id="grad_month" name="grad_month" placeholder="Month">
+                      <input id="grad_year" name="grad_year" placeholder="Year">
                     </div>
                   </div>
-
-                  <div class="field">
-                    <label for="degree">Expected degree</label>
-                    <input id="degree" name="degree" placeholder="B.S. in Computer Science" />
-                  </div>
-
-                  <div class="field">
-                    <label for="gpa">GPA</label>
-                    <input id="gpa" name="gpa" placeholder="3.75 / 4.00" />
-                  </div>
-
-                  <div class="field">
-                    <label for="majors">Majors</label>
-                    <input id="majors" name="majors" placeholder="Computer Science" />
-                  </div>
-
-                  <div class="field">
-                    <label for="minors">Minors</label>
-                    <input id="minors" name="minors" placeholder="Mathematics" />
-                  </div>
-
-                  <div class="field">
-                    <label for="certificates">Certificates</label>
-                    <input id="certificates" name="certificates" placeholder="Cybersecurity, Data Analytics, etc." />
-                  </div>
-
-                  <div class="field">
-                    <label for="other_education">Other education</label>
-                    <textarea id="other_education" name="other_education" placeholder="Bootcamps, online courses, workshops, etc."></textarea>
-                  </div>
+                  <div class="field"><label>Degree</label><input id="degree" name="degree"></div>
+                  <div class="field"><label>GPA</label><input id="gpa" name="gpa"></div>
+                  <div class="field"><label>Majors</label><input id="majors" name="majors"></div>
                 </div>
               </div>
             </div>
 
             <!-- RIGHT COLUMN -->
             <div>
-              <!-- Experience -->
+              <!-- EXPERIENCE -->
               <div class="form-section">
                 <div class="form-section-header">
                   <div class="form-section-title">Experience</div>
-                  <div class="form-section-tag">Work / involvement</div>
+                  <div class="form-section-tag">Work</div>
                 </div>
 
                 <div class="field-group">
-                  <div class="field">
-                    <label for="exp_coordinator">Experience coordinator</label>
-                    <input id="exp_coordinator" name="exp_coordinator" placeholder="Company / organization / supervisor" />
-                  </div>
+                  <div class="field"><label>Coordinator</label><input id="exp_coordinator" name="exp_coordinator"></div>
+                  <div class="field"><label>Role</label><input id="exp_name" name="exp_name"></div>
 
-                  <div class="field">
-                    <label for="exp_name">Experience name</label>
-                    <input id="exp_name" name="exp_name" placeholder="Job title, position, or role" />
-                  </div>
-
-                  <div class="field">
-                    <label>Experience location</label>
+                  <div class="field"><label>Location</label>
                     <div class="field-row-two">
-                      <input id="exp_city" name="exp_city" placeholder="City" />
-                      <input id="exp_state" name="exp_state" placeholder="State" />
+                      <input id="exp_city" name="exp_city">
+                      <input id="exp_state" name="exp_state">
                     </div>
                   </div>
 
-                  <div class="field">
-                    <label>Experience timeline</label>
+                  <div class="field"><label>Timeline</label>
                     <div class="field-row-two">
-                      <input id="exp_start_month" name="exp_start_month" placeholder="Start month" />
-                      <input id="exp_start_year" name="exp_start_year" placeholder="Start year" />
+                      <input id="exp_start_month" name="exp_start_month" placeholder="Start">
+                      <input id="exp_start_year" name="exp_start_year" placeholder="Year">
                     </div>
                     <div class="field-row-two" style="margin-top: 0.35rem;">
-                      <input id="exp_end_month" name="exp_end_month" placeholder="End month or Present" />
-                      <input id="exp_end_year" name="exp_end_year" placeholder="End year" />
+                      <input id="exp_end_month" name="exp_end_month" placeholder="End">
+                      <input id="exp_end_year" name="exp_end_year" placeholder="Year">
                     </div>
                   </div>
 
                   <div class="field">
-                    <label for="exp_details">Experience description / details</label>
-                    <textarea id="exp_details" name="exp_details" placeholder="- Bullet 1&#10;- Bullet 2&#10;- Bullet 3"></textarea>
+                    <label>Experience details</label>
+                    <textarea id="exp_details" name="exp_details" placeholder="- Bullet 1&#10;- Bullet 2"></textarea>
                   </div>
                 </div>
               </div>
 
-              <!-- Projects -->
+              <!-- PROJECT -->
               <div class="form-section" style="margin-top: 1rem;">
                 <div class="form-section-header">
                   <div class="form-section-title">Projects</div>
@@ -268,47 +184,36 @@
                 </div>
 
                 <div class="field-group">
-                  <div class="field">
-                    <label for="proj_name">Project name</label>
-                    <input id="proj_name" name="proj_name" placeholder="Project name" />
-                  </div>
-
-                  <div class="field">
-                    <label for="proj_details">Project description / details</label>
-                    <textarea id="proj_details" name="proj_details" placeholder="Short description, tech stack, and what you did."></textarea>
+                  <div class="field"><label>Project name</label><input id="proj_name" name="proj_name"></div>
+                  <div class="field"><label>Project details</label>
+                    <textarea id="proj_details" name="proj_details"></textarea>
                   </div>
                 </div>
               </div>
 
-              <!-- Skills -->
+              <!-- SKILLS -->
               <div class="form-section" style="margin-top: 1rem;">
                 <div class="form-section-header">
                   <div class="form-section-title">Skills</div>
-                  <div class="form-section-tag">Technical & soft</div>
+                  <div class="form-section-tag">Technical</div>
                 </div>
 
                 <div class="field-group">
                   <div class="field">
-                    <label for="skills">Skills</label>
-                    <textarea id="skills" name="skills" placeholder="Languages, frameworks, tools, and other skills.&#10;e.g. C++, Python, HTML/CSS/JS, Unity, Git"></textarea>
+                    <label>Skills</label>
+                    <textarea id="skills" name="skills"></textarea>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
 
-          <!-- Footer buttons -->
           <div class="form-footer">
-            <div class="pill-hint">
-              You can copy/paste a whole section if you need more entries (e.g. more experiences or projects).
-            </div>
-            <div style="display: flex; gap: 0.5rem;">
-              <button type="button" class="btn btn-secondary" id="back-to-start-btn">← Back</button>
-              <button type="submit" class="btn btn-primary">
-                Generate resume
-              </button>
-            </div>
+            <button class="btn btn-secondary" id="back-to-start-btn">← Back</button>
+            <button type="submit" class="btn btn-primary">Generate resume</button>
           </div>
+
         </form>
       </section>
 
@@ -318,89 +223,39 @@
           <div class="spinner"></div>
           <div>
             <div class="screen-title">Generating…</div>
-            <p class="screen-subtitle">
-              The form data is being collected and prepared for the backend.
-            </p>
+            <p class="screen-subtitle">Working with your resume data.</p>
           </div>
-          <div class="progress-bar">
-            <div class="progress-bar-fill"></div>
-          </div>
-          <div class="status-pill">Working with your resume data.</div>
         </div>
       </section>
 
-      <!-- SCREEN 4: PREVIEW (placeholder) -->
+      <!-- SCREEN 4: PREVIEW -->
       <section class="screen" id="screen-preview">
         <header class="screen-header">
-          <h2 class="screen-title">Preview data</h2>
-          <p class="screen-subtitle">
-            This shows the JSON object built from your inputs. The backend can use this to generate the final resume.
-          </p>
+          <h2 class="screen-title">Preview</h2>
+          <p class="screen-subtitle">Your data and generated resume.</p>
         </header>
 
         <div class="preview-layout">
           <div class="preview-card">
-            <h3>
-              Captured data
-              <span class="preview-badge">Payload</span>
-            </h3>
-            <p>
-              These are the fields collected from the form. This is what will be sent to the Python backend.
-            </p>
-
+            <h3>Captured Data</h3>
             <pre id="preview-json" class="preview-json"></pre>
           </div>
 
           <div class="preview-card">
-            <h3>Backend integration</h3>
-            <p>
-              The frontend sends this data as JSON. The backend can return HTML, a PDF, or any other output.
-            </p>
+            <h3>Generated Resume</h3>
+            <iframe id="resume-iframe" style="width:100%; height:400px;"></iframe>
 
-            <div class="chip-row">
-              <div class="chip">POST /generate-resume</div>
-              <div class="chip">JSON request body</div>
-              <div class="chip">Resume template logic</div>
-              <div class="chip">HTML / PDF response</div>
-            </div>
-
-            <div class="preview-buttons">
-              <button class="btn btn-secondary" id="preview-back-btn">← Edit info</button>
-              <button class="btn btn-primary" type="button">
-                Download (placeholder)
-              </button>
-            </div>
-
-            <p style="margin-top: 1.1rem; font-size: 0.8rem; color: var(--text-muted);">
-              Example backend hook (for Casen):
-            </p>
-            <pre class="preview-json" style="max-height: 220px;">
-// JavaScript
-fetch("/generate-resume", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(window.resumeData),
-})
-  .then(r => r.json()) // or .text() if HTML
-  .then(data => {
-    console.log("Backend result:", data);
-  });
-
-// Python (FastAPI-ish)
-// @app.post("/generate-resume")
-// async def generate_resume(payload: dict):
-//     # payload == resumeData from frontend
-//     # build resume and return HTML / file link
-//     return payload
-            </pre>
+            <button id="download-btn" class="btn btn-primary" style="margin-top:12px;">
+              Download resume.html
+            </button>
           </div>
         </div>
       </section>
+
     </main>
   </div>
 
   <script>
-    // Screen switching
     const screens = document.querySelectorAll(".screen");
     const steps = document.querySelectorAll(".step");
 
@@ -421,58 +276,56 @@ fetch("/generate-resume", {
       });
     }
 
-    // Buttons
-    document.getElementById("start-btn").addEventListener("click", () => {
-      showScreen("screen-form");
-    });
-    document.getElementById("jump-to-form-btn").addEventListener("click", () => {
-      showScreen("screen-form");
-    });
-    document.getElementById("back-to-start-btn").addEventListener("click", () => {
-      showScreen("screen-start");
-    });
-    document.getElementById("preview-back-btn").addEventListener("click", () => {
-      showScreen("screen-form");
-    });
+    document.getElementById("start-btn").onclick = () => showScreen("screen-form");
+    document.getElementById("jump-to-form-btn").onclick = () => showScreen("screen-form");
+    document.getElementById("back-to-start-btn").onclick = () => showScreen("screen-start");
 
-    // Form handling
     const form = document.getElementById("resume-form");
-    let generationTimeout = null;
-    window.resumeData = {}; // global so backend dev can see it in DevTools
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
+      const data = Object.fromEntries(new FormData(form).entries());
       window.resumeData = data;
 
-      console.log("Resume data:", data);
+      // Switch to generating screen
       showScreen("screen-generating");
 
-      // Simulated "generating" delay, then show preview.
-      if (generationTimeout) clearTimeout(generationTimeout);
-      generationTimeout = setTimeout(() => {
-        const preview = document.getElementById("preview-json");
-        preview.textContent = JSON.stringify(window.resumeData, null, 2);
-        showScreen("screen-preview");
-      }, 1600);
+      try {
+        const res = await fetch("http://127.0.0.1:8000/generate-resume", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ data }),
+        });
 
-      /*
-      // Real backend call (for later)
-      fetch("/generate-resume", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(window.resumeData),
-      })
-        .then((res) => res.json()) // or res.text() for HTML
-        .then((result) => {
-          console.log("Backend result:", result);
-          // Could update preview screen with actual resume HTML
-        })
-        .catch((err) => console.error("Error from backend:", err));
-      */
+        const result = await res.json();
+
+        // Show JSON preview
+        document.getElementById("preview-json").textContent =
+          JSON.stringify(window.resumeData, null, 2);
+
+        // Load generated HTML into iframe
+        const iframe = document.getElementById("resume-iframe");
+        iframe.srcdoc = result.html;
+
+        // Setup download
+        document.getElementById("download-btn").onclick = () => {
+          const blob = new Blob([result.html], { type: "text/html" });
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = "resume.html";
+          link.click();
+        };
+
+        showScreen("screen-preview");
+
+      } catch (err) {
+        alert("Error generating resume. Is the backend running?");
+        console.error(err);
+      }
     });
+
   </script>
+
 </body>
 </html>
