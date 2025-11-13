@@ -1,0 +1,48 @@
+﻿Resume Outline
+
+* Name
+
+* Contact Information
+   * Phone number
+   * Email
+   * LinkedIn
+   * GitHub
+   * Other
+
+* Education
+   * University
+      * University Name
+      * College Name
+      * Location
+         * City
+         * State
+      * Expected Grad Date
+         * Month
+         * Year
+      * Expected Degree
+      * GPA
+      * Majors
+      * Minors
+      * Certificates
+   * Other Education
+
+* Experience
+   * Experience Coordinator
+   * Experience Location
+      * City
+      * State
+   * Experience Name
+   * Experience Timeline
+      * Start date
+         * Month
+         * Year
+      * End Date (or present)
+         * Month
+         * Year
+   * Experience description/details
+
+* Projects
+   * Project name
+   * Project Description/details
+
+* Skills
