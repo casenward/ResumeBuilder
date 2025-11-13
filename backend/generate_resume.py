@@ -1,42 +1,18 @@
 from pathlib import Path
-from backend.resume import Resume, Education, Experience, Project, Skills
+from resume import FullResume
 
 
-def resume_to_html(resume: Resume) -> str:
-    """Convert a Resume object into styled HTML."""
+def resume_to_html(resume: FullResume) -> str:
+    """Convert a FullResume object into a clean HTML resume."""
 
-    # Experience section
-    experience_html = ""
-    for exp in resume.experience:
-        bullet_list = "".join(f"<li>{b}</li>" for b in exp.bullets)
+    # Experience bullets
+    exp_bullets_html = "".join(f"<li>{b}</li>" for b in resume.experience_bullets)
 
-        experience_html += f"""
-        <div class="item">
-            <div class="item-header">
-                <span class="item-role">{exp.role}</span>
-                <span class="item-location">{exp.organization} – {exp.location}</span>
-            </div>
-            <div class="item-dates">{exp.start_date} – {exp.end_date}</div>
-            <ul class="item-bullets">{bullet_list}</ul>
-        </div>
-        """
+    # Project 1 bullets
+    project1_html = "".join(f"<li>{b}</li>" for b in resume.project1_bullets)
 
-    # Projects section
-    projects_html = ""
-    for proj in resume.projects:
-        bullet_list = "".join(f"<li>{b}</li>" for b in proj.bullets)
-
-        projects_html += f"""
-        <div class="item">
-            <div class="item-header">
-                <span class="item-role">{proj.name}</span>
-            </div>
-            <ul class="item-bullets">{bullet_list}</ul>
-        </div>
-        """
-
-    education = resume.education
-    skills = resume.skills
+    # Project 2 bullets
+    project2_html = "".join(f"<li>{b}</li>" for b in resume.project2_bullets)
 
     # Final HTML template
     return f"""
@@ -49,12 +25,11 @@ def resume_to_html(resume: Resume) -> str:
     <style>
         body {{
             font-family: Arial, sans-serif;
-            margin: 0; padding: 0;
             background: #f7f7f7;
         }}
         .page {{
             width: 800px;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 40px;
             background: white;
             box-shadow: 0 0 8px rgba(0,0,0,0.15);
@@ -62,10 +37,9 @@ def resume_to_html(resume: Resume) -> str:
         .name {{
             font-size: 32px;
             font-weight: bold;
-            margin-bottom: 8px;
         }}
         .contact span {{
-            margin-right: 14px;
+            margin-right: 12px;
         }}
         .section {{
             margin-top: 30px;
@@ -77,64 +51,63 @@ def resume_to_html(resume: Resume) -> str:
             border-bottom: 1px solid #ccc;
             margin-bottom: 8px;
         }}
-        .item {{
-            margin-bottom: 12px;
-        }}
-        .item-header {{
-            display: flex;
-            justify-content: space-between;
-        }}
-        .item-role {{
-            font-weight: bold;
-        }}
-        .item-dates {{
-            font-size: 12px;
-            color: #666;
-        }}
-        .item-bullets {{
-            margin: 4px 0;
+        ul {{
             padding-left: 20px;
         }}
-        .item-bullets li {{
-            margin: 2px 0;
-        }}
     </style>
+
 </head>
 <body>
-    <div class="page">
-        <div class="name">{resume.name}</div>
-        <div class="contact">
-            <span>{resume.email}</span>
-            <span>{resume.phone}</span>
-        </div>
 
-        <div class="section">
-            <div class="section-title">Experience</div>
-            {experience_html}
-        </div>
+<div class="page">
 
-        <div class="section">
-            <div class="section-title">Projects</div>
-            {projects_html}
-        </div>
-
-        <div class="section">
-            <div class="section-title">Education</div>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-role">{education.degree}</span>
-                    <span class="item-location">{education.school}</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Skills</div>
-            <div class="item">
-                {", ".join(skills.skills)}
-            </div>
-        </div>
+    <div class="name">{resume.name}</div>
+    <div class="contact">
+        <span>{resume.phone}</span>
+        <span>{resume.email}</span>
+        <span>{resume.linkedin}</span>
+        <span>{resume.github}</span>
     </div>
+
+    <div class="section">
+        <div class="section-title">Education</div>
+        <p><b>{resume.education_school}</b>, {resume.education_location}</p>
+        <p>{resume.education_degree} — GPA: {resume.education_gpa}</p>
+        <p>Expected Graduation: {resume.education_graduation}</p>
+        <p>Majors: {", ".join(resume.education_majors)}</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Experience</div>
+        <p><b>{resume.experience_role}</b> — {resume.experience_organization}, {resume.experience_location}</p>
+        <p>{resume.experience_start_date} – {resume.experience_end_date}</p>
+        <ul>{exp_bullets_html}</ul>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Projects</div>
+
+        <p><b>{resume.project1_name}</b></p>
+        <ul>{project1_html}</ul>
+
+        <p><b>{resume.project2_name}</b></p>
+        <ul>{project2_html}</ul>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Skills</div>
+        <p><b>Programming Languages:</b> {", ".join(resume.skills_programming_languages)}</p>
+        <p><b>Version Control:</b> {", ".join(resume.skills_version_control)}</p>
+    </div>
+
+</div>
+
 </body>
 </html>
-    """
+"""
+
+
+def save_resume_html(resume: FullResume, filename: str = "resume.html"):
+    html = resume_to_html(resume)
+    Path(filename).write_text(html, encoding="utf-8")
+    print(f"✔ Resume generated: {filename}")
