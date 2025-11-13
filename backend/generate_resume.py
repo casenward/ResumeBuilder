@@ -111,3 +111,49 @@ def save_resume_html(resume: FullResume, filename: str = "resume.html"):
     html = resume_to_html(resume)
     Path(filename).write_text(html, encoding="utf-8")
     print(f"✔ Resume generated: {filename}")
+
+
+
+def resume_from_json(data: dict) -> FullResume:
+    return FullResume(
+        name=data.get("full_name"),
+        phone=data.get("phone"),
+        email=data.get("email"),
+        linkedin=data.get("linkedin"),
+        github=data.get("github"),
+
+        education_school=data.get("uni_name"),
+        education_location=f"{data.get('edu_city')}, {data.get('edu_state')}",
+        education_graduation=f"{data.get('grad_month')} {data.get('grad_year')}",
+        education_degree=data.get("degree"),
+        education_gpa=float(data.get("gpa")),
+        education_majors=[m.strip() for m in data.get("majors", "").split(",")],
+
+        experience_organization=data.get("exp_coordinator"),
+        experience_location=f"{data.get('exp_city')}, {data.get('exp_state')}",
+        experience_role=data.get("exp_name"),
+        experience_start_date=f"{data.get('exp_start_month')} {data.get('exp_start_year')}",
+        experience_end_date=f"{data.get('exp_end_month')} {data.get('exp_end_year')}",
+        experience_bullets=[
+            b.strip("- ").strip()
+            for b in data.get("exp_details", "").split("\n")
+            if b.strip()
+        ],
+
+        project1_name=data.get("proj_name"),
+        project1_bullets=[
+            p.strip()
+            for p in data.get("proj_details", "").split("\n")
+            if p.strip()
+        ],
+
+        project2_name="Additional Project Placeholder",
+        project2_bullets=["Add more projects using UI later"],
+
+        skills_programming_languages=[
+            s.strip()
+            for s in data.get("skills", "").split(",")
+            if s.strip()
+        ],
+        skills_version_control=["Git"]
+    )
